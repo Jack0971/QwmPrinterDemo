@@ -9,22 +9,44 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.qwm.qwmprinterdemo.utils.PrintTerUtils;
+
+/**
+ * @author qiwenming
+ * @date 2016/2/29 0029 下午 4:32
+ * @ClassName: MainActivity
+ * @PackageName: com.qwm.qwmprinterdemo
+ * @Description: 打印
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    /**
+     * 打印订单
+     * @param view
+     */
+    public void printOrder1(View view){
+        PrintTerUtils.getPrintTerUtils(this).toPrintOrder();
+    }
+
+    /**
+     * 打印回收单
+     * @param view
+     */
+    public void printOrder2(View view){
+        PrintTerUtils.getPrintTerUtils(this).toPrint2();
+    }
+
+    /**
+     * 打印回收单
+     * @param view
+     */
+    public void printOrder3(View view){
+        PrintTerUtils.getPrintTerUtils(this).toPrint3();
     }
 }

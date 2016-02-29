@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qwm.qwmprinterdemo">
 
-    <!--声明使用usb配件-->
+    <!--声明使用usb-->
     <uses-feature android:name="android.hardware.usb.host"></uses-feature>
 
     <application
@@ -15,6 +15,15 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <!--usb设备的动作-->
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- android设备的信息过滤-->
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/qwm_usb_xml" ></meta-data>
         </activity>
         <activity
             android:name=".UsbDemoActivity"
@@ -23,7 +32,6 @@
             <intent-filter>
                 <!--usb设备的动作-->
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
            <!-- android设备的信息过滤-->
@@ -31,5 +39,4 @@
                 android:resource="@xml/qwm_usb_xml" ></meta-data>
         </activity>
     </application>
-
 </manifest>

@@ -88,7 +88,7 @@ public class UsbDemoActivity extends AppCompatActivity {
         FloatingActionButton sendFab = (FloatingActionButton) findViewById(R.id.fab_send);
         sendFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {//发送数据 String xx = "0D";
+            public void onClick(View view) {//6.发送数据 String xx = "0D";
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
